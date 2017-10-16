@@ -8,6 +8,7 @@ class TetrisGame : Game
     InputHelper inputHelper;
     GameWorld gameWorld;
     TetrisBlock tetrisBlock;
+    
 
     [STAThread]
     static void Main(string[] args)
@@ -26,7 +27,7 @@ class TetrisGame : Game
         this.Content.RootDirectory = "Content";
         
         // set the desired window size
-        graphics.PreferredBackBufferWidth = 360;
+        graphics.PreferredBackBufferWidth = 600;
         graphics.PreferredBackBufferHeight = 600;
 
         // create the input helper object
@@ -42,6 +43,7 @@ class TetrisGame : Game
         // create and reset the game world
         gameWorld = new GameWorld(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, Content);
         gameWorld.Reset();
+        tetrisBlock = new TetrisBlock();
     }
 
     protected override void Update(GameTime gameTime)
@@ -49,6 +51,8 @@ class TetrisGame : Game
         inputHelper.Update(gameTime);
         gameWorld.HandleInput(gameTime, inputHelper);
         gameWorld.Update(gameTime);
+        tetrisBlock.Update(gameTime);
+       // tetrisBlock.FallSpeed(gameTime);
         
         
     }

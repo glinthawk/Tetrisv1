@@ -21,6 +21,7 @@ class TetrisGrid
             for (int x = 0; x < Width; x++)
                 table[y, x] = Color.White;
         BlockList = new List<TetrisBlock>();
+        
         BlockList.Add(new LBlock());
 
     }
@@ -46,7 +47,7 @@ class TetrisGrid
     /*
      * height in terms of grid elements
      */
-    public int Height
+    public static int Height
     {
         get { return 20; }
     }
