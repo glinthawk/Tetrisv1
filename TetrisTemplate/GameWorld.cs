@@ -18,35 +18,24 @@ class GameWorld
         Playing, GameOver
     }
 
-    /*
-     * screen width and height
-     */
+     // screen width and height
     int screenWidth, screenHeight;
 
-    /*
-     * random number generator
-     */
+     // random number generator
     Random random;
 
-    /*
-     * main game font
-     */
+     // main game font
     SpriteFont font;
 
-    /*
-     * sprite for representing a single tetris block element
-     */
+     // sprite for representing a single tetris block element
     Texture2D block;
-
-    /*
-     * the current game state
-     */
+    
+     // the current game state
     GameState gameState;
 
-    /*
-     * the main playing grid
-     */
+     // the main playing grid
     TetrisGrid grid;
+
 
     public GameWorld(int width, int height, ContentManager Content)
     {
@@ -58,6 +47,7 @@ class GameWorld
         block = Content.Load<Texture2D>("block");
         font = Content.Load<SpriteFont>("SpelFont");
         grid = new TetrisGrid(block);
+        
     }
 
     public void Reset()
@@ -71,18 +61,19 @@ class GameWorld
 
     public void Update(GameTime gameTime)
     {
+        grid.Update(gameTime);
     }
 
     public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
         spriteBatch.Begin();
         grid.Draw(gameTime, spriteBatch);
+        
         spriteBatch.End();    
     }
 
-    /*
-     * utility method for drawing text on the screen
-     */
+    
+     // utility method for drawing text on the screen
     public void DrawText(string text, Vector2 positie, SpriteBatch spriteBatch)
     {
         spriteBatch.DrawString(font, text, positie, Color.Blue);

@@ -52,6 +52,7 @@ class TetrisGame : Game
         gameWorld.HandleInput(gameTime, inputHelper);
         gameWorld.Update(gameTime);
         tetrisBlock.Update(gameTime);
+        
        // tetrisBlock.FallSpeed(gameTime);
         
         
